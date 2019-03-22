@@ -207,6 +207,7 @@ body {
       .recieved-message-hover-content {
         opacity: 0;
         color: $seen-message-color;
+        cursor: pointer;
         align-self: center;
         margin-left: 12px;
       }
@@ -243,6 +244,7 @@ body {
           bottom: 0;
           right: 13px;
           padding: 2px 5px;
+          cursor: pointer;
           .fa-plus {
             font-size: 9px;
             position: absolute;
@@ -267,6 +269,7 @@ body {
       .message-hover-content {
         opacity: 0;
         color: $seen-message-color;
+        cursor: pointer;
         align-self: center;
         margin: 0 10px 0 auto;
       }
@@ -277,6 +280,7 @@ body {
         align-self: center;
         font-size: 18px;
         margin-left: 0px;
+        cursor: pointer;
         color: $icon-focused;
       }
       .sent-message-hover-content {

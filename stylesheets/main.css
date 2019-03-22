@@ -357,6 +357,7 @@ body {
 .container .messages-area .message-container .recieved-message-hover-content {
   opacity: 0;
   color: #9a9da5;
+  cursor: pointer;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -402,6 +403,7 @@ body {
   bottom: 0;
   right: 13px;
   padding: 2px 5px;
+  cursor: pointer;
 }
 
 .container .messages-area .message-container .message-image-area .image-react-container .fa-plus {
@@ -430,6 +432,7 @@ body {
 .container .messages-area .message-container .message-hover-content {
   opacity: 0;
   color: #9a9da5;
+  cursor: pointer;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -446,6 +449,7 @@ body {
       align-self: center;
   font-size: 18px;
   margin-left: 0px;
+  cursor: pointer;
   color: #3f4249;
 }
 
