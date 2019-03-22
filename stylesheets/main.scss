@@ -27,6 +27,41 @@ $tooltip2-text-color: #7a7b80;
   padding: 0;
 }
 
+@mixin tooltip($count, $width, $left, $left_after: 8%) {
+  .tooltip-#{$count} {
+    position: relative;
+    display: inline-block;
+    .tooltiptext-#{$count} {
+      font-size: 13px;
+      visibility: hidden;
+      width: $width;
+      background-color: $tooltip1-bg-color;
+      color: $tooltip1-text-color;
+      text-align: center;
+      border-radius: 2px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 150%;
+      left: $left;
+      margin-left: -60px;
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: $left_after;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: $tooltip1-bg-color transparent transparent transparent;
+      }
+    }
+    &:hover .tooltiptext-#{$count} {
+      visibility: visible;
+    }
+  }
+}
+
 body {
   background-color: #e9ebee;
   overflow: hidden;
@@ -76,7 +111,6 @@ body {
           margin-right: 10px;
           font-weight: bold;
           font-size: 13px;
-
           &:hover {
             text-decoration: underline;
           }
@@ -91,144 +125,10 @@ body {
       display: flex;
       justify-content: space-around;
       flex: 2;
-      .tooltip-1 {
-        position: relative;
-        display: inline-block;
-        .tooltiptext-1 {
-          font-size: 13px;
-          visibility: hidden;
-          width: 165px;
-          background-color: $tooltip1-bg-color;
-          color: $tooltip1-text-color;
-          text-align: center;
-          border-radius: 2px;
-          padding: 5px;
-          position: absolute;
-          z-index: 1;
-          bottom: 150%;
-          left: 300%;
-          margin-left: -60px;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 8%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: $tooltip1-bg-color transparent transparent transparent;
-          }
-        }
-        &:hover .tooltiptext-1 {
-          visibility: visible;
-        }
-      }
-
-      .tooltip-2 {
-        position: relative;
-        display: inline-block;
-
-        .tooltiptext-2 {
-          font-size: 13px;
-          visibility: hidden;
-          width: 160px;
-          background-color: $tooltip1-bg-color;
-          color: $tooltip1-text-color;
-          text-align: center;
-          border-radius: 2px;
-          padding: 5px;
-          position: absolute;
-          z-index: 1;
-          bottom: 150%;
-          left: 340%;
-          margin-left: -60px;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 8%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: $tooltip1-bg-color transparent transparent transparent;
-          }
-        }
-        &:hover .tooltiptext-2 {
-          visibility: visible;
-        }
-      }
-
-      .tooltip-3 {
-        position: relative;
-        display: inline-block;
-
-        .tooltiptext-3 {
-          font-size: 13px;
-          visibility: hidden;
-          width: 50px;
-          background-color: $tooltip1-bg-color;
-          color: $tooltip1-text-color;
-          text-align: center;
-          border-radius: 2px;
-          padding: 5px;
-          position: absolute;
-          z-index: 1;
-          bottom: 150%;
-          left: 240%;
-          margin-left: -60px;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: $tooltip1-bg-color transparent transparent transparent;
-          }
-        }
-        &:hover .tooltiptext-3 {
-          visibility: visible;
-        }
-      }
-
-      .tooltip-4 {
-        position: relative;
-        display: inline-block;
-
-        .tooltiptext-4 {
-          font-size: 13px;
-          visibility: hidden;
-          min-width: 56px;
-          background-color: $tooltip1-bg-color;
-          color: $tooltip1-text-color;
-          text-align: center;
-          border-radius: 2px;
-          padding: 5px;
-          position: absolute;
-          z-index: 1;
-          bottom: 150%;
-          left: 480%;
-          margin-left: -60px;
-
-          &::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 20%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: $tooltip1-bg-color transparent transparent transparent;
-          }
-        }
-        &:hover .tooltiptext-4 {
-          visibility: visible;
-        }
-      }
+      @include tooltip(1, 165px, 300%);
+      @include tooltip(2, 160px, 340%);
+      @include tooltip(3, 50px, 240%, 50%);
+      @include tooltip(4, 56px, 480%, 20%);
     }
     &:hover {
       background-color: rgb(242, 243, 245);
@@ -276,7 +176,6 @@ body {
           z-index: 1;
           top: 2px;
           left: 110%;
-
           &::after {
             content: "";
             position: absolute;
@@ -298,7 +197,6 @@ body {
         position: relative;
         padding: 5px 8px;
         margin: 5px -5px;
-
         .message-text {
           @include remove_default;
         }
@@ -345,7 +243,6 @@ body {
           bottom: 0;
           right: 13px;
           padding: 2px 5px;
-
           .fa-plus {
             font-size: 9px;
             position: absolute;
@@ -383,7 +280,7 @@ body {
         color: $icon-focused;
       }
       .sent-message-hover-content {
-        visibility: hidden;    
+        visibility: hidden;
         width: 95px;
         background-color: $tooltip1-bg-color;
         color: $tooltip1-text-color;
@@ -403,7 +300,7 @@ body {
           margin-top: -5px;
           border-width: 5px;
           border-style: solid;
-          border-color: transparent  $tooltip1-bg-color transparent transparent;
+          border-color: transparent $tooltip1-bg-color transparent transparent;
         }
       }
 
@@ -443,7 +340,6 @@ body {
     font-size: 15px;
     color: #8f959b;
     padding-left: 10px;
-
     .footer-icon {
       position: relative;
       display: inline-block;
