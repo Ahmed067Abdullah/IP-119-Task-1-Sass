@@ -1,0 +1,491 @@
+$theme_color: #0099ff;
+$icon-color: #bfc2c8;
+$icon-focused: darken($icon-color, 50%);
+$recieved-message-color: #f1f0f0;
+$sent-message-color: $theme_color;
+$seen-message-color: #9a9da5;
+$tooltip1-bg-color: #282828;
+$tooltip1-text-color: #e5e7e9;
+$tooltip2-bg-color: #f8fcfb;
+$tooltip2-text-color: #7a7b80;
+
+@mixin image_container {
+  .image-container {
+    height: 30px;
+    width: 30px;
+    padding-right: 10px;
+    img {
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@mixin remove_default {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e9ebee;
+  overflow: hidden;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.container {
+  background-color: white;
+  height: 350px;
+  width: 284px;
+  position: absolute;
+  bottom: -22px;
+  right: 250px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 0 0px 20px rgba(black, 0.4);
+  .header {
+    height: 43px;
+    border-bottom: 2px solid #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px;
+    .header-friend-area {
+      display: flex;
+      justify-content: flex-start;
+      flex: 3;
+      @include image_container;
+      .image-container {
+        position: relative;
+        .online-status {
+          background-color: green;
+          width: 9px;
+          height: 9px;
+          border-radius: 50%;
+          position: absolute;
+          right: 12%;
+          bottom: -6%;
+          border: 2.5px solid #fff;
+        }
+      }
+      .friend-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        .friend-name {
+          margin-right: 10px;
+          font-weight: bold;
+          font-size: 13px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        .friend-status {
+          color: rgb(144, 148, 156);
+          font-size: 12px;
+        }
+      }
+    }
+    .header-option {
+      display: flex;
+      justify-content: space-around;
+      flex: 2;
+      .tooltip-1 {
+        position: relative;
+        display: inline-block;
+        .tooltiptext-1 {
+          font-size: 13px;
+          visibility: hidden;
+          width: 165px;
+          background-color: $tooltip1-bg-color;
+          color: $tooltip1-text-color;
+          text-align: center;
+          border-radius: 2px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 300%;
+          margin-left: -60px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 8%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: $tooltip1-bg-color transparent transparent transparent;
+          }
+        }
+        &:hover .tooltiptext-1 {
+          visibility: visible;
+        }
+      }
+
+      .tooltip-2 {
+        position: relative;
+        display: inline-block;
+
+        .tooltiptext-2 {
+          font-size: 13px;
+          visibility: hidden;
+          width: 160px;
+          background-color: $tooltip1-bg-color;
+          color: $tooltip1-text-color;
+          text-align: center;
+          border-radius: 2px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 340%;
+          margin-left: -60px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 8%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: $tooltip1-bg-color transparent transparent transparent;
+          }
+        }
+        &:hover .tooltiptext-2 {
+          visibility: visible;
+        }
+      }
+
+      .tooltip-3 {
+        position: relative;
+        display: inline-block;
+
+        .tooltiptext-3 {
+          font-size: 13px;
+          visibility: hidden;
+          width: 50px;
+          background-color: $tooltip1-bg-color;
+          color: $tooltip1-text-color;
+          text-align: center;
+          border-radius: 2px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 240%;
+          margin-left: -60px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: $tooltip1-bg-color transparent transparent transparent;
+          }
+        }
+        &:hover .tooltiptext-3 {
+          visibility: visible;
+        }
+      }
+
+      .tooltip-4 {
+        position: relative;
+        display: inline-block;
+
+        .tooltiptext-4 {
+          font-size: 13px;
+          visibility: hidden;
+          min-width: 56px;
+          background-color: $tooltip1-bg-color;
+          color: $tooltip1-text-color;
+          text-align: center;
+          border-radius: 2px;
+          padding: 5px;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 480%;
+          margin-left: -60px;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 20%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: $tooltip1-bg-color transparent transparent transparent;
+          }
+        }
+        &:hover .tooltiptext-4 {
+          visibility: visible;
+        }
+      }
+    }
+    &:hover {
+      background-color: rgb(242, 243, 245);
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .messages-area {
+    font-size: 13px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 235px;
+    padding: 5px 0;
+    .convo-date {
+      color: $seen-message-color;
+      font-weight: bold;
+      font-size: 11px;
+      text-align: center;
+      margin: 5px 0 4px;
+    }
+    .message-container {
+      position: relative;
+      display: inline-block;
+      padding: 0 8px;
+      margin: 0;
+      display: flex;
+      align-items: flex-end;
+      @include image_container;
+      .image-container {
+        margin-bottom: 7px;
+        position: relative;
+        display: inline-block;
+        .message-tooltip-text {
+          visibility: hidden;
+          width: 157px;
+          background-color: $tooltip1-bg-color;
+          color: $tooltip1-text-color;
+          text-align: center;
+          border-radius: 2px;
+          font-size: 12px;
+          padding: 7px 0;
+          position: absolute;
+          z-index: 1;
+          top: 2px;
+          left: 110%;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 100%;
+            margin-top: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent $tooltip1-bg-color transparent transparent;
+          }
+        }
+        &:hover .message-tooltip-text {
+          visibility: visible;
+        }
+      }
+      .message-area {
+        max-width: 150px;
+        border-radius: 15px;
+        position: relative;
+        padding: 5px 8px;
+        margin: 5px -5px;
+
+        .message-text {
+          @include remove_default;
+        }
+      }
+      .recieved {
+        background-color: $recieved-message-color;
+      }
+      .recieved-message-hover-content {
+        opacity: 0;
+        color: $seen-message-color;
+        align-self: center;
+        margin-left: 12px;
+      }
+      &:hover .recieved-message-hover-content {
+        opacity: 1;
+      }
+      .message-image-area {
+        max-width: 150px;
+        border-radius: 15px;
+        position: relative;
+        padding: 5px 8px;
+        margin: 5px 0px 5px -5px;
+        background-color: white;
+        .message-image-container {
+          width: 90%;
+          height: 160px;
+          img {
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-bottom-left-radius: 2px;
+            border-bottom-right-radius: 20px;
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .image-react-container {
+          width: 22px;
+          height: 15px;
+          border-radius: 32px;
+          background-color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+          color: $icon-color;
+          position: absolute;
+          bottom: 0;
+          right: 13px;
+          padding: 2px 5px;
+
+          .fa-plus {
+            font-size: 9px;
+            position: absolute;
+            top: 1.5px;
+            left: 20px;
+          }
+        }
+      }
+      .first-message {
+        margin-left: 35px;
+        margin-bottom: -2px;
+        border-bottom-left-radius: 0px;
+      }
+      .second-message {
+        border-top-left-radius: 0px;
+      }
+      .sent {
+        background-color: $sent-message-color;
+        color: white;
+        margin-right: 8px;
+      }
+      .message-hover-content {
+        opacity: 0;
+        color: $seen-message-color;
+        align-self: center;
+        margin: 0 10px 0 auto;
+      }
+      &:hover .message-hover-content {
+        opacity: 1;
+      }
+      .share-icon-container {
+        align-self: center;
+        font-size: 18px;
+        margin-left: 0px;
+        color: $icon-focused;
+      }
+      .sent-message-hover-content {
+        visibility: hidden;    
+        width: 95px;
+        background-color: $tooltip1-bg-color;
+        color: $tooltip1-text-color;
+        text-align: center;
+        border-radius: 2px;
+        font-size: 12px;
+        padding: 7px 0;
+        position: absolute;
+        z-index: 10;
+        top: 17%;
+        left: 98%;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 100%;
+          margin-top: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: transparent  $tooltip1-bg-color transparent transparent;
+        }
+      }
+
+      &:hover .sent-message-hover-content {
+        visibility: visible;
+      }
+    }
+
+    .seen-msg {
+      @include remove_default;
+      color: $seen-message-color;
+      font-size: 11px;
+      margin: 2px 10px 2px 147px;
+    }
+  }
+
+  .type-message-area {
+    height: 22px;
+    border-top: 2px solid #f2f2f2;
+    .message-field {
+      font-family: Helvetica, Arial, sans-serif;
+      width: 264px;
+      height: 100%;
+      border: none;
+      padding: 5px 10px 0;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .footer-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 45px;
+    font-size: 15px;
+    color: #8f959b;
+    padding-left: 10px;
+
+    .footer-icon {
+      position: relative;
+      display: inline-block;
+      .footer-icon-text {
+        visibility: hidden;
+        border-radius: 2px;
+        width: 67px;
+        background-color: $tooltip2-bg-color;
+        color: $tooltip2-text-color;
+        text-align: center;
+        padding: 2px;
+        position: absolute;
+        z-index: 1;
+        font-size: 11px;
+        top: 5px;
+        left: 10px;
+        border: 1px solid $tooltip2-text-color;
+      }
+      &:hover .footer-icon-text {
+        transition: 1s linear 0.5s;
+        visibility: visible;
+      }
+    }
+    i {
+      cursor: pointer;
+      margin: 0 6px;
+      &:hover {
+        color: $icon-focused;
+      }
+      &:last-child {
+        color: $theme_color;
+        margin: 0 10px 0 auto;
+        transition: 0.4s linear;
+        &:hover {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
+
+.icon {
+  cursor: pointer;
+  color: $theme_color;
+}
