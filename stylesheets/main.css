@@ -1,7 +1,9 @@
 body {
   background-color: #e9ebee;
-  overflow: hidden;
   font-family: Helvetica, Arial, sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
 }
 
 .container {
@@ -9,7 +11,7 @@ body {
   height: 350px;
   width: 284px;
   position: absolute;
-  bottom: -22px;
+  bottom: 0px;
   right: 250px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -264,7 +266,7 @@ body {
   font-size: 13px;
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 235px;
+  height: 240px;
   padding: 5px 0;
 }
 
@@ -518,7 +520,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 45px;
+  height: 31px;
   font-size: 15px;
   color: #8f959b;
   padding-left: 10px;
